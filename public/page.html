@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contest | Mockup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+</head>
+
+<body ng-app="contestapp" ng-controller="contestctrl">
+    <c-header></c-header>
+    <jumbo-title></jumbo-title>
+    <div class="container">
+        <div class="alert alert-info">
+            <div class="row justify-content-between mb-2">
+                <div><strong>Number of Days Left : </strong>{{numDays}} </div>
+                <div><strong>Number of Days Attended : </strong>{{attDats}} </div>
+            </div>
+            <div class="row justify-content-between ">
+                <div></div>
+                <div class="alert alert-success mb-0"><strong>Your Points : </strong>{{points}}</div>
+                <div></div>
+            </div>
+        </div>
+        <form class="form">
+            <h2 class="display-4">Answer the following questions </h2>
+            <div class="row form-group">
+                <div class="col-sm-12 "><strong>Question 1</strong></div>
+                <label for="q1" class="col-sm-6 text-md-center"> {{q1}} </label>
+                <input type="text" id="q1" ng-model="userA1" class="form-control col-sm-6 text-md-center" min="0" max="999999"> </div>
+            <div class="row form-group">
+                <div class="col-sm-12"><strong>Question 2</strong></div>
+                <label for="q2" class="col-sm-6 text-md-center"> {{q2}} </label>
+                <input type="text" id="q2" ng-model="userA2" class="form-control col-sm-6 text-md-center" min="0" max="999999"> </div>
+            <div class="row form-group">
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-outline-info" ng-click="submitAnswers()">Submit</button>
+                </div>
+            </div>
+        </form>
+        <div ng-if="!showAnswers && submitClicked" class="alert alert-warning">Enter answers!</div>
+        <div ng-if="showAnswers">
+            <hr>
+            <h4 class="display-4">Results</h4>
+            <table class="table table-inverse table-bordered">
+                <tr>
+                    <td scope="row"></td>
+                    <td>Your Answer</td>
+                    <td>Your Points</td>
+                </tr>
+                <tr>
+                    <td>Question 1</td>
+                    <td>{{userA1}}</td>
+                    <td>{{pointsA1}}</td>
+                </tr>
+                <tr>
+                    <td>Question 2</td>
+                    <td>{{userA2}}</td>
+                    <td>{{pointsA2}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <c-footer></c-footer>
+</body>
+
+</html>

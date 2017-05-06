@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contest | Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+</head>
+
+<body ng-app="contestapp" ng-controller="contestctrl" id="home">
+    <c-header></c-header>
+    <jumbo-title></jumbo-title>
+    <div class="container">
+        <div id="about" class="mt-5">
+            <h4 class="display-4 text-muted"><b>About the Contest</b></h4>
+            <p class="col-md-10">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+        </div>
+        <div id="rules" class="mt-5">
+            <h2 class="display-4 text-muted"><b> Contest Rules</b></h2>
+            <ul>
+                <li> The contest will be running for a duration of 1 month. </li>
+                <li> You will answer 2 questions every day related to predicting the market level.</li>
+                <li> Whoever scores maximum at the end of the contest will be the winner. </li>
+                <li> <strong>Cash prizes</strong>
+                    <br> Winner : Rs. 20,000
+                    <br> 1st Runner Up : Rs. 10,000
+                    <br> 2nd Runner Up : Rs. 5,000</li>
+            </ul>
+        </div>
+        <hr> <a href="/login" class="btn btn-primary mx-auto my-3"> Go to Contest </a> <a class="btn btn-outline-success" href="page.html"> See contest mockup </a> </div>
+    <hr>
+    <c-footer></c-footer>
+</body>
+
+</html>
