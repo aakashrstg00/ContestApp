@@ -10,6 +10,13 @@ app.use(bodyParser.json());
 app.get('/contest', function (req, res) {
     res.send("Go to homepage for contest details!");
 });
+app.get('/profile', function (req, res) {
+    if (!req.session.userid) {
+        var err = new Error("You are not authorized to be granted access!! Log In or Sign Up for an account.");
+        err.status = 403;
+        res.send(err);
+    }
+});
 app.get('/register', function (req, res) {
     res.sendFile(__dirname + '/public/register.html');
 });
@@ -50,13 +57,6 @@ app.post('/login', function (req, res) {
         res.send("Enter credentials properly!! Username and Password required!");
     }
 });
-/*app.post('/login', function (req, res) {
-    var obj = {
-        userid: req.body.userid
-        , pass: req.body.pass
-    }
-    dbopr.getUser(obj, res);
-});*/
 app.listen("3000", function () {
     console.log("server up and running!");
 });

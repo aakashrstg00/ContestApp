@@ -7,7 +7,7 @@ var connection = require("./connection.js");
 var Schema = connection.Schema;
 var userSchema = new Schema({
     name: {
-        type: String
+        type: Object
         , required: true
         , trim: true
     }
@@ -27,7 +27,7 @@ var userSchema = new Schema({
         , unique: true
         , trim: true
     }
-    , password: {
+    , pass: {
         type: String
         , required: true
     }

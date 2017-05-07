@@ -10,25 +10,30 @@ var dbOperations = {
             , pass: userObject.pass
         });
         userObject.save(function (err) {
-            if (!err) {
-                response.send("Congratulations!! Registration Successful :) A mail will be sent to your account with more details soon!");
+            if (err) {
+                response.send(err);
             }
             else {
-                response.send("Error in New User Addition (database issue)");
+                response.send("Mubarak Ho!! Aapke ghar naya account hua hai!");
             }
-        })
+        });
     }
     , getUser: function (userObject, response) {
-        UserSchema.findOne({
+        UserSchema.find({
             userid: userObject.userid
             , password: userObject.password
         }, function (err, user) {
             if (err) {
-                response.send("Cannot find User");
+                response.send(err);
             }
             else {
-                response.send("Welcome " + user.userid);
-                console.log(user);
+                if (user[0]) {
+                    response.send("Welcome " + user[0].name.fname);
+                    console.log(user);
+                }
+                else {
+                    response.send("Invalid Username or Password");
+                }
             }
         })
     }
