@@ -6,7 +6,7 @@ app.directive("jumboTitle", function () {
 });
 app.directive("cHeader", function () {
     return {
-        template: " <nav class=\"navbar navbar-toggleable-lg navbar-inverse bg-inverse\"><div class=\"container\"><ul class=\"nav navbar-nav\"><li class=\"nav-item\"><a href=\"index.html\" class=\"nav-link\"> Home <span class=\"sr-only\">(current)</span></a></li><li class=\"nav-item\"><a href=\"index.html#about\" class=\"nav-link\"> About </a></li><li class=\"nav-item\"><a href=\"index.html#rules\" class=\"nav-link\"> Rules </a></li><li class=\"nav-item\"><a href=\"register.html\" class=\"nav-link\"> Sign Up </a></li></ul> <a href=\"https://github.com/aakashrstg00\" class=\"navbar-brand ml-sm-auto mr-0\">Presented by <b>Aakash Rastogi</b></a> </div> </nav> "
+        template: " <nav class=\"navbar navbar-toggleable-lg navbar-inverse bg-inverse\"><div class=\"container\"><ul class=\"nav navbar-nav\"><li class=\"nav-item\"><a href=\"index.html\" class=\"nav-link\"> Home <span class=\"sr-only\">(current)</span></a></li><li class=\"nav-item\"><a href=\"index.html#about\" class=\"nav-link\"> About </a></li><li class=\"nav-item\"><a href=\"index.html#rules\" class=\"nav-link\"> Rules </a></li><li class=\"nav-item\"><a href=\"register\" class=\"nav-link\"> Sign Up </a></li></ul> <a href=\"https://github.com/aakashrstg00\" class=\"navbar-brand ml-sm-auto mr-0\">Presented by <b>Aakash Rastogi</b></a> </div> </nav> "
         , restrict: "E"
     };
 });

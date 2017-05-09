@@ -1,4 +1,23 @@
 var UserSchema = require("./schema.js");
+/*
+var bcrypt = require("bcrypt");
+
+
+bcrypt.compare(myPlaintextPassword, hash, function(err, res) {});
+
+
+
+
+    bcrypt.hash(user.pass, 10, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.pass = hash;
+        next();
+    });
+
+
+*/
 var dbOperations = {
     addNewUser: function (userObject, response) {
         var userObject = new UserSchema({
@@ -11,7 +30,8 @@ var dbOperations = {
         });
         userObject.save(function (err) {
             if (err) {
-                response.send(err);
+                console.log(err.errmsg);
+                response.send(err.errmsg);
             }
             else {
                 response.send("Mubarak Ho!! Aapke ghar naya account hua hai!");
@@ -19,17 +39,27 @@ var dbOperations = {
         });
     }
     , getUser: function (userObject, response) {
+        /*
+        console.log(userObject.pass);
+         bcrypt.hash(userObject.pass, 10, function (err, hash) {
+             if (!err) {
+                 userObject.pass = hash;
+             }
+         });
+        var salt = bcrypt.genSaltSync(10);
+        userObject.pass = bcrypt.hashSync(userObject.pass, salt);
+        console.log(userObject.pass); */
         UserSchema.find({
             userid: userObject.userid
-            , password: userObject.password
+            , pass: userObject.pass
         }, function (err, user) {
             if (err) {
-                response.send(err);
+                console.log(err.errmsg);
+                response.send(err.errmsg);
             }
             else {
                 if (user[0]) {
                     response.send("Welcome " + user[0].name.fname);
-                    console.log(user);
                 }
                 else {
                     response.send("Invalid Username or Password");
@@ -40,6 +70,7 @@ var dbOperations = {
     , deleteUser: function (userObject, response) {
         UserSchema.findOneAndRemove({
             userid: userObject.userid
+            , pass: userObject.pass
         }, function (err) {
             if (err) {
                 response.send("Can't delete the user");
@@ -52,6 +83,7 @@ var dbOperations = {
     , updateUser: function (userObject, response) {
         UserSchema.findOneAndUpdate({
             userid: userObject.userid
+            , pass: userObject.pass
         }, {
             $set: {
                 userid: 'amit'

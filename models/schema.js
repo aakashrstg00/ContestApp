@@ -4,6 +4,19 @@
 // connection.model("users",userSchema)
 // export it
 var connection = require("./connection.js");
+/*
+var bcrypt = require("bcrypt");
+userSchema.pre('save', function (next) {
+    var user = this;
+    bcrypt.hash(user.pass, 10, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.pass = hash;
+        next();
+    });
+});
+*/
 var Schema = connection.Schema;
 var userSchema = new Schema({
     name: {
@@ -14,6 +27,7 @@ var userSchema = new Schema({
     , email: {
         type: String
         , required: true
+        , unique: true
         , trim: true
     }
     , phone: {
